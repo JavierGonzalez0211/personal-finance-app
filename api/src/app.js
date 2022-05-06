@@ -3,7 +3,10 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 // const routes = require('./routes/index.js');
-const cors = require ('cors')
+// const cors = require ('cors')
+const jwt = require ('jsonwebtoken');
+require('dotenv').config();
+const {SECRET_KEY} = process.env
 
 //Server Configuration
 
@@ -43,7 +46,51 @@ server.use((req, res, next) => {
   next();
 });
 
-// server.use('/', routes);
 
+// Authentication first approuch ...working
+
+const verifyAuth = (req, res, next) => {
+  const bearerHeader = req.headers['authorization'];
+  let token;
+
+  if (typeof bearerHeader !== "undefined") {
+    token = bearerHeader.split(" ")[1]
+        
+  }
+  else {
+    res.sendStatus(403);
+  }
+
+  jwt.verify(token, SECRET_KEY, (error, user) => {
+    if (error) {
+      res.sendStatus(403);
+    }else {
+     next()
+    }
+  })
+}
+
+server.post('/api/login', (req,res) =>{
+  
+
+
+  jwt.sign({user}, SECRET_KEY, (error, token) =>{
+    
+    if (token){
+      res.json({token})
+
+    } else {
+      res.json(error)
+    }
+  })
+
+})
+server.post('/api/test_login', verifyAuth, (req,res) =>{
+  
+
+  res.json({message:'authenticated'})
+})
+
+// server.use('/', routes);
 
 module.exports = server;
