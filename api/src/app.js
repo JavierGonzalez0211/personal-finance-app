@@ -2,7 +2,7 @@ const express = require('express');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
-// const routes = require('./routes/index.js');
+const routes = require('./routes/index.js');
 // const cors = require ('cors')
 const jwt = require ('jsonwebtoken');
 require('dotenv').config();
@@ -70,27 +70,27 @@ const verifyAuth = (req, res, next) => {
   })
 }
 
-server.post('/api/login', (req,res) =>{
+// server.post('/api/login', (req,res) =>{
   
 
 
-  jwt.sign({user}, SECRET_KEY, (error, token) =>{
+//   jwt.sign({user}, SECRET_KEY, (error, token) =>{
     
-    if (token){
-      res.json({token})
+//     if (token){
+//       res.json({token})
 
-    } else {
-      res.json(error)
-    }
-  })
+//     } else {
+//       res.json(error)
+//     }
+//   })
 
-})
-server.post('/api/test_login', verifyAuth, (req,res) =>{
+// })
+// server.post('/api/test_login', verifyAuth, (req,res) =>{
   
 
-  res.json({message:'authenticated'})
-})
+//   res.json({message:'authenticated'})
+// })
 
-// server.use('/', routes);
+server.use('/', routes);
 
 module.exports = server;
