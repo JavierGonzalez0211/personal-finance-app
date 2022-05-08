@@ -1,6 +1,5 @@
 const express = require('express');
 const cookieParser = require('cookie-parser');
-const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const routes = require('./routes/index.js');
 // const cors = require ('cors')
@@ -33,8 +32,7 @@ const server = express();
 
 
 server.name = 'API';
-
-server.use(bodyParser.urlencoded({ extended: true, limit: '50mb' }));
+server.use(express.urlencoded({extended: true, limit: '50mb'}))
 server.use(express.json());
 server.use(cookieParser());
 server.use(morgan('dev'));
@@ -74,15 +72,15 @@ const verifyAuth = (req, res, next) => {
   
 
 
-//   jwt.sign({user}, SECRET_KEY, (error, token) =>{
+  // jwt.sign({user}, SECRET_KEY, (error, token) =>{
     
-//     if (token){
-//       res.json({token})
+  //   if (token){
+  //     res.json({token})
 
-//     } else {
-//       res.json(error)
-//     }
-//   })
+  //   } else {
+  //     res.json(error)
+  //   }
+  // })
 
 // })
 // server.post('/api/test_login', verifyAuth, (req,res) =>{

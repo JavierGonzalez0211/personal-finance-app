@@ -1,12 +1,11 @@
 const { Router } = require('express');
-const {Operation, Op} = require ('../db')
-
+const {verifyAuth} = require ('./controllers/usersController')
 
 const router = Router();
 
 
 
-router.get('/', (req, res) =>{
+router.get('/', verifyAuth, (req, res) =>{
     res.send('operations route')
 })
 
