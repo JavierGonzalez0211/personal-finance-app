@@ -1,10 +1,11 @@
-import './App.css';
+import { Route, Routes } from 'react-router-dom';
+import Login from './components/login/Login.jsx';
 
 function App() {
   return (
-    <div className="App">
-   <h1>MY FINANCES APP!</h1>
-    </div>
+    <Routes>
+          <Route path="/login" element = {<Login/>} />
+    </Routes>
   );
 }
 
