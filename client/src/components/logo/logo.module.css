@@ -1,0 +1,30 @@
+.logoContainer {
+    width: 100%;
+    height: auto;
+}
+
+.logoBox {
+    width: auto;
+    height: auto;
+    display: inline-flex;
+}
+
+.logo {
+    font-family: Righteous;
+    
+    font-size: clamp(1.5rem, 2.5vw, 2.5rem);
+    font-weight: 700;
+
+}
+
+.app {
+    
+    font-size: clamp(2rem,3vw,3rem);
+    color: var(--headerColor) ;
+}
+
+.logoImg {
+    width: clamp(2rem,3vw,3rem);
+    height: auto;
+    margin-left: .3rem;
+}

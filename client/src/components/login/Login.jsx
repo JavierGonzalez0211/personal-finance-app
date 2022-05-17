@@ -1,38 +1,37 @@
-import { Paper } from '@mui/material'
+// import React from 'react';
+import { Paper, Typography } from '@mui/material'
 import style from './login.module.css'
-import PersonSharpIcon from '@mui/icons-material/PersonSharp';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
+import NavBar from '../navBar/NavBar';
+import HeaderForms from '../headerForms/HeaderForm';
 
 
 const Login = () =>{
     return (
         <div className={style.container}>
-           <section className={style.logo}>
-               <p>MY FINANCES APP!</p>
-               <p>Logo will be here</p>
+           <section>
+               <NavBar  className={style.navBar}/>
            </section>
            <section className={style.formContainer}>
            <Paper elevation={3} className={style.loginForm}>
-               <h2 className={style.title}>LOGIN</h2>
-                <div className={style.iconContainer}>
-                    <PersonSharpIcon  className={style.icon}/>
-                </div>
-                <hr />
+               <section className={style.header}>
+                <HeaderForms />
+               </section>
                 <Paper elevation={0} className={style.form}>
                 <TextField
                     className={style.fields}
                     required
                     label="User name"
-                    helperText="Required"
                     variant="outlined"
                 />
                 <TextField
+                    className={style.fields}
                     required
                     label="Password"
-                    helperText="Required"
                     variant="outlined"
                 />
+                <Typography className={style.required}>Required *</Typography>
                 <Button className={style.btnSubmit} variant="contained">SUBMIT</Button>
                 <section className={style.links}>
                     <span>Forgot password</span>

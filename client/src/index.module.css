@@ -14,3 +14,25 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* fonts */
+@font-face {
+  font-family: 'Righteous';
+  src: url('../public/fonts/Righteous-Regular.ttf') format('truetype');
+  font-style: normal;
+  font-weight: normal;
+}
+
+/* variables */
+
+:root {
+  /* colors */
+  --bgColor: linear-gradient(135deg, rgba(217,175,217,0.26420990759585083) 38%, rgba(151,217,225,0.30902783476671913) 77%);
+  --navBarColor: linear-gradient(90deg, rgba(89,195,95,1) 0%, rgba(27,94,32,1) 48%);
+  --primaryColor: #2e7d32;
+  --headerColor: #9c27b0;
+
+  /* fonts-sizes */
+  --mainSize: clamp(2rem,3vw,3rem);
+  --secondarySize: clamp(1.5rem, 2.5vw, 2.5rem);
+  
+}
