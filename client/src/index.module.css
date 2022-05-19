@@ -30,6 +30,7 @@ body {
   --navBarColor: linear-gradient(90deg, rgba(89,195,95,1) 0%, rgba(27,94,32,1) 48%);
   --primaryColor: #2e7d32;
   --headerColor: #9c27b0;
+  --neutral:  #64748B;
 
   /* fonts-sizes */
   --mainSize: clamp(2rem,3vw,3rem);

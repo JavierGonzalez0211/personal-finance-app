@@ -19,7 +19,6 @@
     display: flex;
     flex-direction: column;
     margin: auto;
-
 }
 
 .header {
@@ -33,9 +32,7 @@
     width: 80%;
     margin-left: auto;
     margin-right: auto;
-    /* padding: 1rem; */
 }
-
 
 .form {
     display: flex;
@@ -60,6 +57,11 @@
 .btnSubmit {
     padding: 1rem;
     background-image: var(--navBarColor);
+}
+
+.btnSubmit:disabled {
+    color: #fff;
+    opacity: .5;
 }
 
 .links {

@@ -31,7 +31,8 @@ router.post ('/login', async (req, res)=>{
     let token = await login (userName, password)
 
     if (token) {
-        res.json(token)
+        res.cookie('token', token, {httpOnly: true})
+        res.json({msg: 'authenticated'})
     }
     else {
         res.send (' incorrect user or password')

@@ -98,14 +98,11 @@ const createToken = (user) =>{
 
 //-------verify token
 const verifyAuth = (req, res, next) => {
-    const bearerHeader = req.headers['authorization'];
-    let token;
+    const token = req.cookies.token;
 
-    if (typeof bearerHeader !== "undefined") {
-      token = bearerHeader.split(" ")[1]
-    }
-    else {
-      res.sendStatus(403);
+   console.log ('token', token)
+    if (token === undefined) {
+        res.sendStatus(403);
     }
   
     jwt.verify(token, SECRET_KEY, (error, decoded) => {
@@ -116,6 +113,25 @@ const verifyAuth = (req, res, next) => {
       }
     })
   }
+// const verifyAuth = (req, res, next) => {
+//     const bearerHeader = req.headers['authorization'];
+//     let token;
+
+//     if (typeof bearerHeader !== "undefined") {
+//       token = bearerHeader.split(" ")[1]
+//     }
+//     else {
+//       res.sendStatus(403);
+//     }
+  
+//     jwt.verify(token, SECRET_KEY, (error, decoded) => {
+//       if (error) {
+//         res.sendStatus(403);
+//       }else {
+//        next()
+//       }
+//     })
+//   }
 
 
 
