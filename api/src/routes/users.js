@@ -35,7 +35,7 @@ router.post ('/login', async (req, res)=>{
         res.json({msg: 'authenticated'})
     }
     else {
-        res.send (' incorrect user or password')
+        res.sendStatus(401)
     }
 })
 

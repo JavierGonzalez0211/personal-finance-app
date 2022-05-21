@@ -31,9 +31,11 @@ body {
   --primaryColor: #2e7d32;
   --headerColor: #9c27b0;
   --neutral:  #64748B;
+  --error: #d32f2f;
 
   /* fonts-sizes */
   --mainSize: clamp(2rem,3vw,3rem);
   --secondarySize: clamp(1.5rem, 2.5vw, 2.5rem);
+  --mediumSize: clamp(1.2rem, 2vw, 2.2rem);
   
 }

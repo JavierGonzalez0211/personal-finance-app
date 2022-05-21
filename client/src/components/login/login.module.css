@@ -45,6 +45,13 @@
     margin: .5rem auto;
 }
 
+.errorMsg {
+    font-size: var(--mediumSize);
+    font-weight: 600;
+    color: var(--error);
+    text-align: center;
+}
+
 .fields {
     background-image: var(--bgColor);
 }

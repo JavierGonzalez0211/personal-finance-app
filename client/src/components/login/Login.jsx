@@ -4,10 +4,16 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import NavBar from '../navBar/NavBar';
 import HeaderForms from '../headerForms/HeaderForm';
+import loginUser from '../../actions/user/loginUser'
 
 import { useState } from 'react';
+import {useDispatch, useSelector} from 'react-redux'
 
 const Login = () =>{
+
+    const dispatch = useDispatch();
+    const isLoged = useSelector (state => state.isLoged)
+    const loginError = useSelector (state => state.loginError)
 
     const [values, setValues] = useState({
         userName: "",
@@ -17,6 +23,7 @@ const Login = () =>{
     const [errorPassword, setErrorPassword] = useState("")
 
     const handleChange = (e) => {
+
         setValues({
             ...values,
             [e.target.name]: e.target.value
@@ -32,8 +39,10 @@ const Login = () =>{
         
     }
 
-    const ErrorPassword = () => {
-        setErrorPassword("password must be min 6 characters")
+    const submit = (e) => {
+        e.preventDefault()
+        dispatch ( loginUser(values))
+
     }
 
     return (
@@ -47,6 +56,7 @@ const Login = () =>{
                 <HeaderForms />
                </section>
                 <Paper elevation={0} className={style.form}>
+                   { loginError && <Typography className={style.errorMsg}>User or password invalid</Typography>}
                 <TextField
                     name= "userName"
                     value= {values.userName}
@@ -67,13 +77,13 @@ const Login = () =>{
                     variant="outlined"
                     color= {errorPassword ? "error" : "secondary"}
                     onChange={handleChange}
-                    onBlur= {values.password.length < 6 && ErrorPassword}
                 />
                 <Typography className={style.required}>Required *</Typography>
                 <Button 
                     className={style.btnSubmit} 
                     variant="contained"
-                    disabled ={Object.values(values).includes("") || errorPassword}
+                    disabled ={Object.values(values).includes("") || errorPassword !==""}
+                    onClick = {submit}
                     >
                         SUBMIT
                 </Button>
