@@ -41,10 +41,8 @@ const addUser = async (params) => {
         else {
             return error
         }
-
     }
 }
-
 
 //---------Login-----------------
 
@@ -70,7 +68,6 @@ const login = async (user, password) => {
     }
 } 
 
-
 //------hashing password----------
 const hashPassword = async (password) => {
     
@@ -85,7 +82,6 @@ const verifyPassword =  (password, hash) => {
     return bcryptjs.compareSync (password, hash)
 
 }
-
 
 //---------create Token
 const createToken = (user) =>{
@@ -106,7 +102,7 @@ const verifyAuth = (req, res, next) => {
 
    console.log ('token', token)
     if (token === undefined) {
-        res.sendStatus(403);
+        return res.sendStatus(403);
     }
   
     jwt.verify(token, SECRET_KEY, (error, decoded) => {
@@ -117,27 +113,6 @@ const verifyAuth = (req, res, next) => {
       }
     })
   }
-// const verifyAuth = (req, res, next) => {
-//     const bearerHeader = req.headers['authorization'];
-//     let token;
-
-//     if (typeof bearerHeader !== "undefined") {
-//       token = bearerHeader.split(" ")[1]
-//     }
-//     else {
-//       res.sendStatus(403);
-//     }
-  
-//     jwt.verify(token, SECRET_KEY, (error, decoded) => {
-//       if (error) {
-//         res.sendStatus(403);
-//       }else {
-//        next()
-//       }
-//     })
-//   }
-
-
 
 module.exports = {
     addUser,
