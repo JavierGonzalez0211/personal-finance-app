@@ -28,7 +28,11 @@ const addUser = async (params) => {
     } 
     catch (error) {
         if (error.name === "SequelizeUniqueConstraintError") {
-          return  "user or email already exist" 
+            const message = (error.parent.detail).includes("email")
+                            ? "email already exist"
+                            : "user already exist"
+                            
+          return message
         }
         else if (error.name === "SequelizeValidationError") {
             

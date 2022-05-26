@@ -7,12 +7,7 @@ const {
 
 const router = Router();
 
-
-
-router.get('/', (req, res) =>{
-    res.send('users route')
-})
-
+// Add new users
 router.post ('/', async (req, res) =>{
 
     try {
@@ -25,13 +20,15 @@ router.post ('/', async (req, res) =>{
     }
 })
 
+//Login
 router.post ('/login', async (req, res)=>{
     const {userName, password} = req.body;
 
     let token = await login (userName, password)
 
     if (token) {
-        res.cookie('token', token, {httpOnly: true})
+        res.cookie('token', token, {httpOnly: true, maxAge: 1000 * 60})
+        res.cookie('userName', userName, {maxAge: (1000 * 60)})
         res.json({msg: 'authenticated'})
     }
     else {
