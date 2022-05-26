@@ -37,5 +37,6 @@ body {
   --mainSize: clamp(2rem,3vw,3rem);
   --secondarySize: clamp(1.5rem, 2.5vw, 2.5rem);
   --mediumSize: clamp(1.2rem, 2vw, 2.2rem);
+  --smallSize: clamp(1rem, 1.5vw, 2rem);
   
 }
