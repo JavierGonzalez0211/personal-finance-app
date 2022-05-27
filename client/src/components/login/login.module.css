@@ -56,9 +56,10 @@
     background-image: var(--bgColor);
 }
 
-.required {
+.errorPassword {
     font-Size: 1rem;
     padding-Left: .75rem;
+    color: var(--error)
 }
 
 .btnSubmit {
@@ -75,6 +76,12 @@
     display: flex;
     justify-content: space-between;
     margin-bottom: 1rem;
+}
+
+.links > * {
+    text-decoration: none;
+    color: var(--headerColor);
+    font-weight: 700;
 }
 
 

@@ -1,8 +1,10 @@
 //-------import actions
 import {
+    IS_LOGED,
     LOGIN,
     LOGIN_ERROR,
     LOGOUT,
+    SIGN_IN_ERROR
 } from '../actions'
 
 
@@ -15,12 +17,21 @@ const initialState = {
     userName: "",
     isLoged: false,
     loginError: false,
-}
+    signInError: { // true when userName or email already exist
+        state: false,
+        message:"",
+    },
+    }  
 
 function rootReducer (state = initialState, action) {
     switch (action.type){
+        case IS_LOGED:
+            return {
+                ...state,
+                isLoged: true,
+                userName: action.payload,
+            }
         case LOGIN:
-            console.log('action.payload', action.payload)
             return {
                 ...state,
                 userName: action.payload,
@@ -39,6 +50,14 @@ function rootReducer (state = initialState, action) {
                 ...state,
                 userName:"",
                 isLoged: false
+            }
+        case SIGN_IN_ERROR:
+            return {
+                ...state,
+                signInError: {
+                    state: action.payload.state,
+                    message: action.payload.message
+                }
             }
         default:
              return state

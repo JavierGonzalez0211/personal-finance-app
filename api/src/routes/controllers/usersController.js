@@ -100,7 +100,6 @@ const createToken = (user) =>{
 const verifyAuth = (req, res, next) => {
     const token = req.cookies.token;
 
-   console.log ('token', token)
     if (token === undefined) {
         return res.sendStatus(403);
     }

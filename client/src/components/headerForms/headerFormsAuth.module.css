@@ -10,7 +10,7 @@
 }
 
 .title {
-    display: inline-block;
+    display: inline;
     font-family: 'Righteous';
     font-size: var(--secondarySize);
     color: #fff;
@@ -20,22 +20,15 @@
 .iconContainer {
     display: flex;
     flex-shrink: 1;
-    /* width: 6rem; */
     width: calc(var(--mainSize)*1.5);
     height: calc(var(--mainSize)*1.5);
-    /* height: 6.5rem; */
     border: 2px solid #fff;
     border-radius: 50%;
-    /* margin-left: auto;
-    margin-right: auto; */
-    /* margin-bottom: 1rem; */
-    /* align-self: center; */
 }
 
 .icon {
     margin-left: auto;
     margin-right: auto;
-    /* font-size: 5.25rem; */
     font-size: calc(var(--mainSize)*1.2);
     color: #fff;
 }

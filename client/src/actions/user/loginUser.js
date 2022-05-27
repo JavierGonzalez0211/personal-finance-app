@@ -1,13 +1,20 @@
 import axiosApi from '../../config/axiosApi'
-import {LOGIN, LOGIN_ERROR ,LOGOUT} from '../'
+import {LOGIN, LOGIN_ERROR } from '../'
 
 
 export default function loginUser (data) {
     return async function (dispatch) {
         console.log('data', data)
         try {
-            let userLoged = await axiosApi.post('users/login', data)
-            console.log('userLoged', userLoged)
+            await axiosApi.post('users/login', data)
+
+            console.log("cook", document.cookie)
+
+            const user = document.cookie?.substring(9)
+
+            if (user) {
+                console.log("hola", user)
+            }
 
             return dispatch ({
                 type: LOGIN,

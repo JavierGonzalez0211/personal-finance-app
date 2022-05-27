@@ -6,7 +6,9 @@ const NavBar = () => {
 
     return (
         <section className={style.navBarContainer}>
+            <section className={style.logo}>
             <Logo />
+            </section>
         </section>
     )
 

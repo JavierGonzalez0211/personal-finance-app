@@ -4,4 +4,11 @@
     height: auto;
     padding: 0 .5rem;
     background-image: var(--navBarColor);
+    display: flex;
+}
+
+.logo {
+    display: inline;
+    margin-left: auto;
+    margin-right: auto;
 }
